@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete.TableModels
 {
-    public class User:IdentityUser<int>
+    public class Message:BaseEntity
     {
         public string Name { get; set; }
-        public string SurName { get; set; }
+        public string Email { get; set; }
+        public string Messages { get; set; }
+        public DateTime InsertDate { get; set; }
+
     }
 }

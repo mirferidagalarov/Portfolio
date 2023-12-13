@@ -8,6 +8,9 @@ namespace Core.Entities
 {
     public abstract class BaseEntity
     {
+        /// <summary>
+        /// Unique Identity
+        /// </summary>
         public int ID { get; set; }
     }
 }

@@ -14,6 +14,6 @@ namespace Core.DataAccess.Abstract
         void Update(T entity);
         void Delete(T entity);
         T Get(Expression<Func<T, bool>> predicate);
-        List<T> GetAll(Expression<Func<T,bool>> predicate);
+        List<T> GetAll(Expression<Func<T, bool>> predicate = null);
     }
 }

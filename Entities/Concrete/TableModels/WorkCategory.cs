@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete.TableModels
 {
-    public class User:IdentityUser<int>
+    public class WorkCategory:BaseEntity
     {
         public string Name { get; set; }
-        public string SurName { get; set; }
+        public int Deleted { get; set; }
+
     }
 }
