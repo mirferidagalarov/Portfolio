@@ -16,6 +16,7 @@ namespace DataAccess.Configuration
             builder.Property(x => x.Name).HasMaxLength(50);
             builder.Property(x => x.Deleted).HasDefaultValue<int>(0);
             builder.HasIndex(x => new { x.Name, x.Deleted }).IsUnique().HasDatabaseName("idx_Position_Name_Deleted");
+
         }
     }
 }

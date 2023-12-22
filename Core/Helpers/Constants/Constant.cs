@@ -8,5 +8,6 @@ namespace Core.Helpers.Constants
 {
     public class Constant
     {
+        public static readonly int NotDeleted = 0;
     }
 }

@@ -35,6 +35,7 @@ namespace Core.DataAccess.Concrete
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)
         {
             using TContext context = new TContext();
+            
             return context.Set<TEntity>().FirstOrDefault(predicate);
         }
 

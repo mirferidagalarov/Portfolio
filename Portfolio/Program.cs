@@ -1,19 +1,25 @@
-using DataAccess.Concrete;
+using Business.Abstract;
+using Business.Concrete;
+using DataAccess.Abstract;
+using DataAccess.Concrete.EntitiyFramework;
 using Entities.Concrete.TableModels;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<PortfolioDbContext>().AddIdentity<User, Role>().AddEntityFrameworkStores<PortfolioDbContext>();
+
+builder.Services.AddScoped<IPositionDAL,PositionEFDal>();
+builder.Services.AddScoped<IPositionService, PositionManager>();
 
 
 var app = builder.Build();
 
-builder.Services.AddDbContext<PortfolioDbContext>(options =>
-options.UseSqlServer());
+//builder.Services.AddDbContext<PortfolioDbContext>(options =>
+//options.UseSqlServer());
 
-//builder.Services.AddDbContext<PortfolioDbContext>().AddIdentity<User,Role>().AddEntityFrameworkStores<PortfolioDbContext>();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -28,10 +34,24 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+     name: "areas",
+     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+   );
+    endpoints.MapControllerRoute(
+       name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+        );
+
+});
+
 
 app.Run();

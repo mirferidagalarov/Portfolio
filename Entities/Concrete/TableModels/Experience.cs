@@ -11,9 +11,12 @@ namespace Entities.Concrete.TableModels
     {
         public string CompanyName { get; set; }
         public string Description { get; set; }
-        public DateTime EntryDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime EntryDate { get; set; }=DateTime.Now;
+        public DateTime? EndDate { get; set; }
         public bool IsContinue { get; set; }
+        public int PositionId { get; set; }
+        public Position Position { get; set; }
+        public int Deleted { get; set; }
 
     }
 }

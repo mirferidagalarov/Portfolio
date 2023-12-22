@@ -9,7 +9,6 @@ namespace Entities.Concrete.TableModels
 {
     public class User:IdentityUser<int>
     {
-        public string Name { get; set; }
-        public string SurName { get; set; }
+    
     }
 }

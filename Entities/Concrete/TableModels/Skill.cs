@@ -11,5 +11,9 @@ namespace Entities.Concrete.TableModels
     {
         public string Name { get; set; }
         public int Deleted { get; set; }
+
+        public  List<AboutSkill> AboutSkills { get; set; }
+       
+
     }
 }

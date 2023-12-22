@@ -13,5 +13,6 @@ namespace Entities.Concrete.TableModels
         public string Description { get; set; }
         public string IconName { get; set; }
         public bool ShowOnPage { get; set; }
+        public int Deleted { get; set; }    
     }
 }
