@@ -3,16 +3,19 @@ using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntitiyFramework;
 using Entities.Concrete.TableModels;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<PortfolioDbContext>().AddIdentity<User, Role>().AddEntityFrameworkStores<PortfolioDbContext>();
-
+//builder.Services.AddDbContext<PortfolioDbContext>(options =>
+//options.UseLazyLoadingProxies().UseSqlServer());
 builder.Services.AddScoped<IPositionDAL,PositionEFDal>();
 builder.Services.AddScoped<IPositionService, PositionManager>();
-
+builder.Services.AddScoped<IPersonDAL, PersonEFDal>();
+builder.Services.AddScoped<IPersonService, PersonManager>();
 
 var app = builder.Build();
 

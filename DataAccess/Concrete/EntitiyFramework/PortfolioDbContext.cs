@@ -15,6 +15,9 @@ namespace DataAccess.Concrete.EntitiyFramework
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=DESKTOP-HM4BSSR\\SQLEXPRESS;database=Portfolio;integrated security=true;");
+
+            //optionsBuilder
+            //    .UseLazyLoadingProxies();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -33,5 +36,6 @@ namespace DataAccess.Concrete.EntitiyFramework
         public DbSet<WorkCategory> WorkCategories { get; set; }
         public DbSet<Service> Services { get; set; }
 
+      
     }
 }

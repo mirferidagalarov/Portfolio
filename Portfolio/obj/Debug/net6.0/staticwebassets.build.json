@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "K1/fUG8GAbhsn3VYXaSA0ev4xUGaNc8tOwaanEAw4Zk=",
+  "Hash": "7PUi1BHi7TcWWXnKXpOFd6/eZliL2CFrTSd/fvqAcbg=",
   "Source": "Portfolio",
   "BasePath": "_content/Portfolio",
   "Mode": "Default",
@@ -525,6 +525,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fonts\\themifyd41d.eot"
+    },
+    {
+      "Identity": "C:\\Users\\Lenovo\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\Image\\4bd95888-25ce-43c7-8027-dcf004e9737a_DSC_0035.jpg",
+      "SourceId": "Portfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lenovo\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\",
+      "BasePath": "_content/Portfolio",
+      "RelativePath": "Image/4bd95888-25ce-43c7-8027-dcf004e9737a_DSC_0035.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\4bd95888-25ce-43c7-8027-dcf004e9737a_DSC_0035.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Lenovo\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\Image\\976159b8-45fd-4617-8b28-b6f3c0f2d69a_ImageFile",
+      "SourceId": "Portfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lenovo\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\",
+      "BasePath": "_content/Portfolio",
+      "RelativePath": "Image/976159b8-45fd-4617-8b28-b6f3c0f2d69a_ImageFile",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\976159b8-45fd-4617-8b28-b6f3c0f2d69a_ImageFile"
     },
     {
       "Identity": "C:\\Users\\Lenovo\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\img\\about-bg.jpg",

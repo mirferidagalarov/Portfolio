@@ -2,7 +2,9 @@
 using Core.Helpers;
 using Core.Helpers.Constants;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntitiyFramework;
 using Entities.Concrete.TableModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +16,13 @@ namespace Business.Concrete
     public class PersonManager : IPersonService
     {
         private readonly IPersonDAL _personDAL;
-        public PersonManager(IPersonDAL personDAL)
+        public PersonManager(IPersonDAL personDAL,PortfolioDbContext portfolioDb)
         {
             _personDAL = personDAL;
         }
-        public IResult Add(Person person)
+        public IResult Add(Person person,string imageFile)
         {
+            person.ProfilPath = imageFile;
             _personDAL.Add(person);
             return new SuccessResult(CommonOperationMessage.DataAddedSuccesfly);
         }
@@ -32,17 +35,18 @@ namespace Business.Concrete
 
         public IDataResult<List<Person>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Person>>(_personDAL.GetAll().ToList());
         }
 
         public IDataResult<Person> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Person>(_personDAL.Get(x => x.ID == id));
         }
 
         public IResult Update(Person person)
         {
-            throw new NotImplementedException();
+           _personDAL.Update(person);
+            return new SuccessResult(CommonOperationMessage.DataUpdateSuccesfly);
         }
     }
 }

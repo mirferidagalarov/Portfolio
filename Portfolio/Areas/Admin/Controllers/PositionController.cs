@@ -42,7 +42,7 @@ namespace Portfolio.Areas.Admin.Controllers
             //Position position = _positionService.GetById(id).Data;
             // return View(position);
         }
-        
+
         [HttpPost]
         public IActionResult Edit(Position position)
         {
@@ -60,16 +60,7 @@ namespace Portfolio.Areas.Admin.Controllers
         }
 
 
-        //[HttpPost]
-        //public IActionResult Delete(Position position)
-        //{
-        //    var data = _positionService.GetById(position.ID).Data;
-
-        //    data.Deleted = data.ID;
-        //    _positionService.Update(data);
-
-        //    return RedirectToAction("Index");
-        //}
+      
 
 
 
