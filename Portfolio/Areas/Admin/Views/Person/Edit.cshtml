@@ -1,0 +1,90 @@
+﻿@model Person
+
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Edit Person</h3></div>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="id"></label>
+                                <input asp-for="ID" type="text" hidden class="form-control" id="id" placeholder="enter" />
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-3 mb-md-3">
+                                        <input asp-for="FirstName" type="text" class="form-control" id="personname" />
+                                        <span asp-validation-for="FirstName" style="color:red"></span>
+                                        <label for="inputFirstName">FirstName</label>
+                                    </div>
+                                     <div class="form-floating mb-3 mb-md-3">
+                                        <input asp-for="LastName" type="text" class="form-control" id="personlastname" />
+                                        <span asp-validation-for="LastName" style="color:red"></span>
+                                        <label for="inputFirstName">LastName</label>
+                                    </div>
+                                     <div class="form-floating mb-3 mb-md-3">
+                                        <input asp-for="BirthDate" type="text" class="form-control" id="personbirthdate" />
+                                        <span asp-validation-for="BirthDate" style="color:red"></span>
+                                        <label for="inputFirstName">BirthDate</label>
+                                    </div>
+                                       <div class="form-floating mb-3 mb-md-3">
+                                        <input asp-for="Address" type="text" class="form-control" id="personaddress" />
+                                        <span asp-validation-for="Address" style="color:red"></span>
+                                        <label for="inputFirstName">Address</label>
+                                    </div>
+                                      <div class="form-floating mb-3 mb-md-3">
+                                        <input asp-for="Email" type="text" class="form-control" id="personemail" />
+                                        <span asp-validation-for="Email" style="color:red"></span>
+                                        <label for="inputFirstName">Email</label>
+                                    </div>
+                                      <div class="form-floating mb-3 mb-md-3">
+                                        <input asp-for="WebSite" type="text" class="form-control" id="personwebsite" />
+                                        <span asp-validation-for="WebSite" style="color:red"></span>
+                                        <label for="inputFirstName">WebSite</label>
+                                    </div>
+                                     <div class="form-floating mb-3 mb-md-3">
+                                        <input asp-for="Description" type="text" class="form-control" id="persondescription" />
+                                        <span asp-validation-for="Description" style="color:red"></span>
+                                        <label for="inputFirstName">Description</label>
+                                    </div>
+                                      <div class="col-md-3 form-group">
+                                        <label asp-for="ImageFile" class="control-label"></label>
+                                        <input asp-for="ImageFile" class="custom-file-input" type="file" />
+                                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label asp-for="CvFile" class="control-label"></label>
+                                        <input asp-for="CvFile" class="custom-file-input" type="file" />
+                                        <span asp-validation-for="CvFile" class="text-danger"></span>
+                                    </div>
+                                    <select asp-for="Position.ID">
+                                        @foreach (var item in ViewData["Persons"] as IEnumerable<Position>)
+                                    {
+                                      <option value="@item.ID">@item.Name</option>
+                                    }
+                                    </select>
+
+
+
+                                </div>
+                            </div>
+                            <div class="mt-4 mb-0">
+                                <button type="submit" class="btn btn-success" style="margin-right:27rem">Save</button>
+                                <button type="submit" asp-area="Admin" asp-controller="Person" asp-action="Index" class="btn btn-danger">Cancel</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main> 
