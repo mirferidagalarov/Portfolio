@@ -29,7 +29,7 @@
                             <th>Cv</th>
                             <th>PositionName</th>
                             <th>Edit</th>
-                            <th>Delete</th>
+                          
                         </tr>
                     </thead>
 
@@ -53,7 +53,7 @@
 @*                                 <td> <a type="button" class="btn btn-primary" asp-controller="Person" asp-action="DownloadFile" asp-route-id="@item.ID">Download</a></td>
  *@                                <td>@item.Position.Name</td>
                                 <td>@Html.ActionLink("Edit", "Edit", "Person", new { id = item.ID }, new { @class = "btn btn-primary" })</td>
-                                <td>@Html.ActionLink("Delete", "Delete", "Person", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+                               @*  <td>@Html.ActionLink("Delete", "Delete", "Person", new { id = item.ID }, new { @class = "btn btn-danger" })</td> *@
                             </tr>
                         }
 

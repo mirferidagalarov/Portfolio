@@ -13,14 +13,12 @@ namespace Portfolio.Areas.Admin.Controllers
         private readonly IPersonService _personService;
         private readonly IPositionService _positionService;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly PortfolioDbContext _portfolioDbContext;
 
-        public PersonController(IPersonService personService, IPositionService positionService, IWebHostEnvironment webHostEnvironment, PortfolioDbContext portfolioDbContext)
+        public PersonController(IPersonService personService, IPositionService positionService, IWebHostEnvironment webHostEnvironment)
         {
             _personService = personService;
             _positionService = positionService;
             _webHostEnvironment = webHostEnvironment;
-            _portfolioDbContext = portfolioDbContext;
         }
 
         public IActionResult Index()
@@ -106,28 +104,26 @@ namespace Portfolio.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Edit(Person person)
         {
-           
             var exsistingProfile = _personService.GetById(person.ID).Data;
+            string filename = exsistingProfile.ProfilPath;
             if (person.ImageFile == null)
             {
                 person.ProfilPath = exsistingProfile.ProfilPath;
             }
-            
-                string filename = "";
+            else
+            {
                
                 filename = Upload(person, filename);
-               
-
+            }
+            string download = exsistingProfile.CvPath;
             if (person.CvFile == null)
             {
                 person.CvPath = exsistingProfile.CvPath;
             }
-           
-
-                string download = "";
+            else
+            {
                 download = Download(person, download);
-
-
+            }
             _personService.Update(person, filename, download);
             return RedirectToAction("Index");
         }
