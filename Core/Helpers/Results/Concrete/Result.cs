@@ -12,6 +12,10 @@ namespace Core.Helpers
         {
             Message = message;
         }
+        public Result(bool success, List<string> messages) : this(success)
+        {
+            Messages = messages;
+        }
         public Result(bool success)
         {
             Success = success;
@@ -19,5 +23,7 @@ namespace Core.Helpers
         public bool Success { get; }
 
         public string Message { get; }
+
+        public List<string> Messages { get; }   
     }
 }

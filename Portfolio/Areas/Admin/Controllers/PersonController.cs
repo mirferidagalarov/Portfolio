@@ -38,13 +38,29 @@ namespace Portfolio.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Add(Person person)
         {
-            string filename="";
-            string download="";
-           filename= Upload(person,filename);
-           download = Download(person,download);
-           
-            _personService.Add(person, filename, download);
-            return RedirectToAction("Index");
+
+            string filename = "";
+            string download = "";
+            filename = Upload(person, filename);
+            download = Download(person, download);
+
+            var result = _personService.Add(person, filename, download);
+            if (result.Success)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewData["Positions"] = _positionService.GetAll().Data;
+                foreach (var error in result.Messages)
+                {
+                    ModelState.Remove(result.Data[result.Messages.IndexOf(error)]);
+                    ModelState.AddModelError(result.Data[result.Messages.IndexOf(error)], error);
+                }
+                return View(person);
+            }
+
+
         }
 
         //public async Task<IActionResult> DownloadFileFromFileSystem(int id)
@@ -112,7 +128,7 @@ namespace Portfolio.Areas.Admin.Controllers
             }
             else
             {
-               
+
                 filename = Upload(person, filename);
             }
             string download = exsistingProfile.CvPath;
@@ -128,35 +144,43 @@ namespace Portfolio.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-  
 
-        public string Upload(Person person,string filename)
+
+        public string Upload(Person person, string filename)
         {
-            string fileName = Guid.NewGuid().ToString() + "_" + person.ImageFile.FileName;
-           
+
             if (person.ImageFile != null)
             {
+                string fileName = Guid.NewGuid().ToString() + "_" + person.ImageFile.FileName;
                 string folder = "Image/";
                 folder += fileName;
                 string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
                 person.ImageFile.CopyTo(new FileStream(serverFolder, FileMode.Create));
+                return fileName;
+            }
+            else
+            {
+                return null;
             }
 
-            return fileName;
         }
 
         public string Download(Person person, string filename)
         {
-            string download = Guid.NewGuid().ToString() + "_" + person.CvFile.FileName;
             if (person.CvFile != null)
             {
+                string download = Guid.NewGuid().ToString() + "_" + person.CvFile.FileName;
                 string folder = "Cv/";
                 folder += download;
                 string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
                 person.CvFile.CopyTo(new FileStream(serverFolder, FileMode.Create));
+                return download;
+            }
+            else
+            {
+                return null;
             }
 
-            return download;
         }
     }
 }

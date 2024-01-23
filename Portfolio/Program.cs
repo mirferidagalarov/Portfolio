@@ -1,9 +1,13 @@
 using Business.Abstract;
 using Business.Concrete;
+using Business.Validator;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntitiyFramework;
 using Entities.Concrete.TableModels;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +32,8 @@ builder.Services.AddScoped<IPortfolioDAL, PortfolioEFDal>();
 builder.Services.AddScoped<IPortfolioService, PortfolioManager>();
 builder.Services.AddScoped<IServiceDAL, ServiceEFDal>();
 builder.Services.AddScoped<IServiceService, ServiceManager>();
+builder.Services.AddScoped<IValidator<Person>, PersonValidator>();
+
 var app = builder.Build();
 
 //builder.Services.AddDbContext<PortfolioDbContext>(options =>

@@ -4,28 +4,31 @@ using Core.Helpers.Constants;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntitiyFramework;
 using Entities.Concrete.TableModels;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FluentValidation;
 
 namespace Business.Concrete
 {
     public class PersonManager : IPersonService
     {
         private readonly IPersonDAL _personDAL;
-        public PersonManager(IPersonDAL personDAL,PortfolioDbContext portfolioDb)
+        private readonly IValidator<Person> _validationRules;
+        public PersonManager(IPersonDAL personDAL,PortfolioDbContext portfolioDb, IValidator<Person> validationRules)
         {
             _personDAL = personDAL;
+            _validationRules = validationRules;
         }
-        public IResult Add(Person person,string imageFile, string download)
+        public IDataResult<List<string>> Add(Person person,string imageFile, string download)
         {
+            
             person.ProfilPath = imageFile;
             person.CvPath= download;
+            var result = _validationRules.Validate(person);
+            if (!result.IsValid)
+            {
+                return new ErrorDataResult<List<string>>(result.Errors.Select(x=>x.PropertyName).ToList(),result.Errors.Select(x=>x.ErrorMessage).ToList()); 
+            }
             _personDAL.Add(person);
-            return new SuccessResult(CommonOperationMessage.DataAddedSuccesfly);
+            return new SuccessDataResult<List<string>>(null,CommonOperationMessage.DataAddedSuccesfly);
         }
 
         public IResult Delete(Person person)

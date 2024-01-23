@@ -17,6 +17,12 @@ namespace Core.Helpers
         {
 
         }
+
+        public SuccessResult(List<string>messages):base(true,messages)
+        {
+
+        }
+      
     }
 
 }

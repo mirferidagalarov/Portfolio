@@ -7,6 +7,11 @@
 
         }
 
+        public ErrorDataResult(T data, List<string> message) : base(data, false, message)
+        {
+
+        }
+
         public ErrorDataResult(T data) : base(data, false)
         {
 

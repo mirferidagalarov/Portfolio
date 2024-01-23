@@ -16,7 +16,7 @@
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-3">
                                         <input asp-for="FirstName" type="text" class="form-control" id="personName" placeholder="enter FirstName" />
-                                        <span asp-validation-for="FirstName" style="color:red"></span>
+                                        <span asp-validation-for="FirstName" style="color:yellow"></span>
                                         <label for="inputFirstName">FirstName</label>
                                     </div>
                                     <div class="form-floating mb-3 mb-md-3">
@@ -26,7 +26,7 @@
                                     </div>
                                     <div class="form-floating mb-3 mb-md-3">
                                         <input asp-for="BirthDate" type="datetime-local" class="form-control" id="personBirthDate" placeholder="enter BirthDate" />
-                                        <span asp-validation-for="BirthDate" style="color:red"></span>
+                                        <span asp-validation-for="BirthDate" style="color:yellow"></span>
                                         <label for="inputBirthDate">BirthDate</label>
                                     </div>
                                     <div class="form-floating mb-3 mb-md-3">
@@ -57,12 +57,12 @@
                                     <div class="col-md-3 form-group">
                                         <label asp-for="ImageFile" class="control-label"></label>
                                         <input asp-for="ImageFile" class="custom-file-input" type="file" />
-                                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                        <span asp-validation-for="ProfilPath" class="text-danger"></span>
                                     </div>
                                     <div class="col-md-3 form-group">
                                         <label asp-for="CvFile" class="control-label"></label>
                                         <input asp-for="CvFile" class="custom-file-input" type="file" />
-                                        <span asp-validation-for="CvFile" class="text-danger"></span>
+                                        <span asp-validation-for="CvPath" class="text-danger"></span>
                                     </div>
 
                                     <select asp-for="PositionId">

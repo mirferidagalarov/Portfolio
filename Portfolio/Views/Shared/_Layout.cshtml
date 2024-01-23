@@ -63,12 +63,16 @@
                     <h4>Hello! I'M</h4>
                     <h1>@Model.People.FullName</h1>
                     <h2>I'm 
-                        @foreach (var item in Model.Positions)
+                       
+
+                            @foreach (var item in Model.Positions)
                             {
-                            <span>
+                            <span class="typed">
                                 @item.Name
                             </span>
-                        }
+                            }
+                       
+                         
                     </h2>
                 </div>
                 <ul class="hero-social">
@@ -112,23 +116,23 @@
 
 
 
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="js/vendor/popper.min.js"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/vendor/scrollit.js"></script>
-    <script src="js/vendor/jquery.waypoints.min.js"></script>
-    <script src="js/vendor/imagesloaded.pkgd.min.js"></script>
-    <script src="js/vendor/venobox.min.js"></script>
-    <script src="js/vendor/jquery.isotope.v3.0.2.js"></script>
-    <script src="js/vendor/owl.carousel.min.js"></script>
-    <script src="js/vendor/typed.min.js"></script>
-    <script src="js/vendor/bootstrap-menu.js"></script>
-    <script src="js/vendor/wow.min.js"></script>
-    <script src="js/contact.js"></script>
-    <script src="js/main.js"></script>
+    <script src="~/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/js/vendor/popper.min.js"></script>
+    <script src="~/js/vendor/bootstrap.min.js"></script>
+    <script src="~/js/vendor/scrollit.js"></script>
+    <script src="~/js/vendor/jquery.waypoints.min.js"></script>
+    <script src="~/js/vendor/imagesloaded.pkgd.min.js"></script>
+    <script src="~/js/vendor/venobox.min.js"></script>
+    <script src="~/js/vendor/jquery.isotope.v3.0.2.js"></script>
+    <script src="~/js/vendor/owl.carousel.min.js"></script>
+    <script src="~/js/vendor/bootstrap-menu.js"></script>
+    <script src="~/js/vendor/wow.min.js"></script>
+    <script src="~/js/contact.js"></script>
+    <script src="~/js/main.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/vendor/typed.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

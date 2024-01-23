@@ -13,6 +13,11 @@ namespace Core.Helpers
 
         }
 
+        public SuccessDataResult(T data, List<string> message) : base(data, false, message)
+        {
+
+        }
+
         public SuccessDataResult(T data) : base(data, true)
         {
 

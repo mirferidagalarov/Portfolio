@@ -10,7 +10,7 @@ namespace Business.Abstract
 {
     public interface IPersonService
     {
-        IResult Add(Person person,string imageFile,string download);
+        IDataResult<List<string>> Add(Person person,string imageFile,string download);
         IResult Update(Person person, string imageFile, string download);  
         IResult Delete(Person person);
         IDataResult<Person> GetById(int id);
