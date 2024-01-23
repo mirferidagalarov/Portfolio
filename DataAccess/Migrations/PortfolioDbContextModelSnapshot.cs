@@ -30,6 +30,9 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
+                    b.Property<int>("Deleted")
+                        .HasColumnType("int");
+
                     b.Property<int>("Point")
                         .HasColumnType("int");
 
@@ -71,9 +74,6 @@ namespace DataAccess.Migrations
 
                     b.Property<DateTime>("EntryDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsContinue")
-                        .HasColumnType("bit");
 
                     b.Property<int>("PositionId")
                         .HasColumnType("int");
@@ -156,7 +156,7 @@ namespace DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("PositionID")
+                    b.Property<int>("PositionId")
                         .HasColumnType("int");
 
                     b.Property<string>("ProfilPath")
@@ -170,12 +170,12 @@ namespace DataAccess.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("PositionID");
+                    b.HasIndex("PositionId");
 
                     b.ToTable("People");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.TableModels.Portfolio", b =>
+            modelBuilder.Entity("Entities.Concrete.TableModels.Portfoli", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -548,14 +548,14 @@ namespace DataAccess.Migrations
                 {
                     b.HasOne("Entities.Concrete.TableModels.Position", "Position")
                         .WithMany("Persons")
-                        .HasForeignKey("PositionID")
+                        .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Position");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.TableModels.Portfolio", b =>
+            modelBuilder.Entity("Entities.Concrete.TableModels.Portfoli", b =>
                 {
                     b.HasOne("Entities.Concrete.TableModels.WorkCategory", "WorkCategory")
                         .WithMany("Portfolios")

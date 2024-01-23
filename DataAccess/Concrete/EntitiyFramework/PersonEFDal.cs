@@ -23,14 +23,11 @@ namespace DataAccess.Concrete.EntitiyFramework
 
     
 
-        public List<Person> GetAll()
+        public List<Person> GetAllWithPosition()
         {
             return _portfolioDbContext.People.Include(x => x.Position).ToList();
         }
 
-        public IDataResult<Person> GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

@@ -7,8 +7,7 @@ namespace DataAccess.Abstract
 {
     public interface IPersonDAL:IRepository<Person>
     {
-        List<Person> GetAll();
-        IDataResult<Person> GetById(int id);
-        //void Getiddownload(int id); 
+        List<Person> GetAllWithPosition();
+      
     }  
 }

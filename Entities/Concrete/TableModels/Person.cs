@@ -31,6 +31,7 @@ namespace Entities.Concrete.TableModels
         [DisplayName("Download File")]
         public IFormFile CvFile { get; set; }
         public Position Position { get; set; }
+        public int PositionId { get; set; }
 
     }
 }

@@ -1,0 +1,41 @@
+﻿@model AboutSkill
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Add AboutSkill</h3></div>
+                    <div class="card-body">
+                        <form method="post" action="/admin/Aboutskill/Add">
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-3 mb-md-3">
+                                        <input asp-for="Point" type="number" class="form-control" id="positionname" placeholder="enter Point" />
+                                        <span asp-validation-for="Point" style="color:red"></span>
+                                        <label for="inputFirstName">Point</label>
+                                    </div>
+                                    <select asp-for="SkillId">
+                                        @foreach (var item in ViewData["Skill"] as IEnumerable<Skill>)
+                                        {
+                                            <option value="@item.ID">@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mt-4 mb-0">
+                                <button type="submit" class="btn btn-success">Save</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,51 @@
+﻿@model Portfoli
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Add Position</h3></div>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="id"></label>
+                                <input asp-for="ID" type="text" hidden class="form-control" id="id" placeholder="enter" />
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-3 mb-md-3">
+                                        <input asp-for="Title" type="text" class="form-control" id="positionname" placeholder="enter Title" />
+                                        <span asp-validation-for="Title" style="color:red"></span>
+                                        <label for="inputFirstName">Title</label>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label asp-for="ImageFile" class="control-label"></label>
+                                        <input asp-for="ImageFile" class="custom-file-input" type="file" />
+                                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                    </div>
+
+                                    <select asp-for="WorkCategoryId">
+                                        @foreach (var item in ViewData["WorkCategory"] as IEnumerable<WorkCategory>)
+                                        {
+                                            <option value="@item.ID">@item.Name</option>
+                                        }
+                                    </select>
+                                 
+                                </div>
+                            </div>
+                            <div class="mt-4 mb-0">
+                                <button type="submit" class="btn btn-success">Save</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

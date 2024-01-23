@@ -16,7 +16,18 @@ builder.Services.AddScoped<IPositionDAL,PositionEFDal>();
 builder.Services.AddScoped<IPositionService, PositionManager>();
 builder.Services.AddScoped<IPersonDAL, PersonEFDal>();
 builder.Services.AddScoped<IPersonService, PersonManager>();
-
+builder.Services.AddScoped<IExperinceDAL, ExperinceEFDal>();
+builder.Services.AddScoped<IExperinceService, ExperinceManager>();
+builder.Services.AddScoped<ISkillDAL, SkillEFDal>();
+builder.Services.AddScoped<ISkillService, SkillManager>();
+builder.Services.AddScoped<IAboutSkillDAL, AboutSkillEFDal>();
+builder.Services.AddScoped<IAboutSkillService, AboutSkillManager>();
+builder.Services.AddScoped<IWorkCategoryDAL, WorkCategoryEFDal>();
+builder.Services.AddScoped<IWorkCategoryService, WorkCategoryManager>();
+builder.Services.AddScoped<IPortfolioDAL, PortfolioEFDal>();
+builder.Services.AddScoped<IPortfolioService, PortfolioManager>();
+builder.Services.AddScoped<IServiceDAL, ServiceEFDal>();
+builder.Services.AddScoped<IServiceService, ServiceManager>();
 var app = builder.Build();
 
 //builder.Services.AddDbContext<PortfolioDbContext>(options =>

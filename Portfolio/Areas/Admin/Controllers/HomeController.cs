@@ -2,7 +2,7 @@
 
 namespace Portfolio.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("admin")]
     public class HomeController : Controller
     {
         public IActionResult Index()

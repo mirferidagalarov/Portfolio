@@ -12,6 +12,8 @@ namespace Entities.Concrete.TableModels
         public int SkillId { get; set; }
         public int Point { get; set; }
         public Skill Skill { get; set; }
+        
+        public int Deleted { get; set; }
 
     }
 }

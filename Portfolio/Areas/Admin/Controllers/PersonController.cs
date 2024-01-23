@@ -7,7 +7,7 @@ using System.Net;
 
 namespace Portfolio.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("admin")]
     public class PersonController : Controller
     {
         private readonly IPersonService _personService;
@@ -31,7 +31,7 @@ namespace Portfolio.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            ViewData["Persons"] = _positionService.GetAll().Data;
+            ViewData["Positions"] = _positionService.GetAll().Data;
 
             return View();
         }
@@ -97,7 +97,7 @@ namespace Portfolio.Areas.Admin.Controllers
         public IActionResult Edit(int id)
         {
 
-            ViewData["Persons"] = _positionService.GetAll().Data;
+            ViewData["Positions"] = _positionService.GetAll().Data;
             var data = _personService.GetById(id).Data;
             return View(data);
         }

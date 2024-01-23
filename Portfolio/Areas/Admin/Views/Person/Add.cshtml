@@ -65,8 +65,8 @@
                                         <span asp-validation-for="CvFile" class="text-danger"></span>
                                     </div>
 
-                                    <select asp-for="Position.ID">
-                                        @foreach (var item in ViewData["Persons"] as IEnumerable<Position>)
+                                    <select asp-for="PositionId">
+                                        @foreach (var item in ViewData["Positions"] as IEnumerable<Position>)
                                     {
                                       <option value="@item.ID">@item.Name</option>
                                     }

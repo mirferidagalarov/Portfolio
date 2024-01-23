@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Portfolio.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("admin")]
     public class PositionController : Controller
     {
         private readonly IPositionService _positionService;

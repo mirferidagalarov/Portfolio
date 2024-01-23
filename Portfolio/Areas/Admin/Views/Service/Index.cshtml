@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Service>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800 mt-4">Positions</h1>
+
+
+    <a href="/admin/service/Add" class="btn btn-primary">Add</a>
+
+    <!-- DataTaBles Example -->
+    <div class="card shadow mb-4 mt-3">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>ShowOnPage</th>
+                            <th>Icon</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td>@item.ShowOnPage</td>
+                                <td><i class="@item.IconName"></i></td>
+                                @*  <a asp-action="Edit" asp-route-id="@item.ID">
+                            Edit
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            </a>*@
+                                <td>@Html.ActionLink("Edit", "Edit", "Service", new { id = item.ID }, new { @class = "btn btn-primary" })</td>
+                                <td>@Html.ActionLink("Delete", "Delete", "Service", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

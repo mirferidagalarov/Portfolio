@@ -36,7 +36,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Person>> GetAll()
         {
-            return new SuccessDataResult<List<Person>>(_personDAL.GetAll().ToList());
+            return new SuccessDataResult<List<Person>>(_personDAL.GetAllWithPosition().ToList());
         }
 
         public IDataResult<Person> GetById(int id)
